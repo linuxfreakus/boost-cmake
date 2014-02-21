@@ -12,7 +12,7 @@
 # Look for the header file.
 find_path(
   ICU_INCLUDE_DIR
-  NAMES unicode/utypes.h
+  NAMES unicode/utypes.h unicode/coll.h
   DOC "Include directory for the ICU library")
 mark_as_advanced(ICU_INCLUDE_DIR)
 

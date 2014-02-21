@@ -11,6 +11,8 @@ message(FATAL_ERROR
     Please download and extract the sources!")
 endif()
 
+message(STATUS "find root path is: ${CMAKE_FIND_ROOT_PATH}")
+
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR})
 find_package(ICU)
 

@@ -12,7 +12,7 @@
 # Look for the header file.
 find_path(
   ICU_INCLUDE_DIR
-  NAMES unicode/utypes.h unicode/coll.h
+  NAMES unicode/utypes.h
   DOC "Include directory for the ICU library")
 mark_as_advanced(ICU_INCLUDE_DIR)
 
@@ -24,7 +24,7 @@ find_library(
 mark_as_advanced(ICU_LIBRARY)
 
 # Copy the results to the output variables.
-if(ICU_INCLUDE_DIR AND ICU_LIBRARY)
+if(ICU_INCLUDE_DIR AND ICU_LIBRARY AND EXISTS "${ICU_INCLUDE_DIR}/unicode/coll.h")
   set(ICU_FOUND 1)
   set(ICU_LIBRARIES ${ICU_LIBRARY})
   set(ICU_INCLUDE_DIRS ${ICU_INCLUDE_DIR})
@@ -81,7 +81,7 @@ else(ICU_INCLUDE_DIR AND ICU_LIBRARY)
   set(ICU_VERSION)
   set(ICU_MAJOR_VERSION)
   set(ICU_MINOR_VERSION)
-endif(ICU_INCLUDE_DIR AND ICU_LIBRARY)
+endif(ICU_INCLUDE_DIR AND ICU_LIBRARY AND EXISTS "${ICU_INCLUDE_DIR}/unicode/coll.h")
 
 IF(ICU_FOUND)
   IF( NOT ICU_FIND_QUIETLY )
